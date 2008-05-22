@@ -1,0 +1,11 @@
+
+use strict;
+use warnings;
+
+use Devel::Caller qw(caller_cv);
+
+sub {
+    my $c = shift;
+    print "$c \n";
+    caller_cv(0)->($c) if ($c --);
+}->(10);
